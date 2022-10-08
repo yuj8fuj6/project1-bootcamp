@@ -1,20 +1,19 @@
-import React from "react";
-import logo from "./logo.png";
+import React, {useState, useEffect} from "react";
+import appicon from "./appicon.png";
 import "./App.css";
 
-class App extends React.Component {
-  render() {
+function App (){
+
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
+          <div className="App-name">
+            Aime
+          </div>
+          <img src={appicon} className="App-logo" alt="app-icon" />
         </header>
       </div>
     );
-  }
 }
 
 export default App;
