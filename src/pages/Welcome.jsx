@@ -3,17 +3,23 @@ import appicon from "../data/appicon.png";
 import { Button } from "../components ";
 import { Link, NavLink } from "react-router-dom";
 
-const Login = () => {
+const Welcome = () => {
   return (
     <div className="base-container">
       <header className="App-header">
         <img src={appicon} className="App-logo" alt="app-icon" />
         <p className="m-10 text-2xl text-dark-pink">
-          Welcome Back !
+          Please choose the following options:
         </p>
+        <Link to="/registration">
+          <Button value="New User" />
+        </Link>
+        <Link to="/login">
+          <Button value="Existing User" />
+        </Link>
       </header>
     </div>
   );
 };
 
-export default Login;
+export default Welcome;

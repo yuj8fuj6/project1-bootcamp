@@ -16,7 +16,7 @@ const Start = () => {
         <div className="App-name">Aime</div>
         <img src={appicon} className="App-logo" alt="app-icon" />
       </header>
-      {start && <Navigate to="./Login" />}
+      {start && <Navigate to="./Welcome" />}
     </div>
   );
 };

@@ -37,6 +37,9 @@ module.exports = {
       minHeight: {
         590: "590px",
       },
+      colors: {
+        "dark-pink": "#EF7C8E",
+      },
     },
   },
   plugins: [],

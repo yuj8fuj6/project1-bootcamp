@@ -4,18 +4,20 @@ import {
   Alert,
   Home,
   Log,
-  Login,
+  Welcome,
   Medicine,
   Mood,
   Notification,
   Profile,
   Registration,
   Start,
+  Login,
 } from "./pages";
+
 import "./App.css";
 
 function App() {
-  const [state, setState] = useState()
+  const [state, setState] = useState();
 
   return (
     <div className="App">
@@ -23,6 +25,7 @@ function App() {
         <div>
           <Routes>
             <Route path="/" element={<Start />} />
+            <Route path="/welcome" element={<Welcome />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/home" element={<Home />} />
