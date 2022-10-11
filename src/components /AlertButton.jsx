@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+import { BsExclamationDiamond } from "react-icons/bs";
 
-const BackButton = () => {
+const AlertButton = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -10,12 +10,12 @@ const BackButton = () => {
       <button
         type="button"
         onClick={() => setIsClicked(true)}
-        className="mt-7 text-6xl bg-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:bg-pink-700 rounded-full"
+        className="text-xxl text-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:text-pink-700"
       >
-        <BsArrowLeftCircle />
+        <BsExclamationDiamond />
       </button>
     </Link>
   );
 };
 
-export default BackButton;
+export default AlertButton;

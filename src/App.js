@@ -17,8 +17,6 @@ import {
 import "./App.css";
 
 function App() {
-  const [state, setState] = useState();
-
   return (
     <div className="App">
       <BrowserRouter>

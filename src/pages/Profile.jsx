@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { BackButton, Button } from "../components ";
+import { Form } from "../components ";
+import { Link, NavLink } from "react-router-dom";
 
 const Profile = () => {
   return (
     <div className="base-container">
       <header className="App-header">
-        <p className="m-10 text-2xl text-dark-pink">
-          Please choose the following options:
+        <BackButton />
+        <p className="font-light w-screen mt-2 text-3xl text-dark-pink text-left pl-10">
+          Profile
         </p>
+        <Form />
+        <Link to="/home">
+          <Button value="Update" />
+        </Link>
       </header>
     </div>
   );
-}
+};
 
-export default Profile
+export default Profile;
