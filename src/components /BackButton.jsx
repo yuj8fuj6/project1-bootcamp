@@ -10,7 +10,7 @@ const BackButton = () => {
       <button
         type="button"
         onClick={() => setIsClicked(true)}
-        className="mt-7 text-6xl bg-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:bg-pink-700 rounded-full"
+        className="mt-7 text-6xl inset-x-2 bg-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:bg-pink-700 rounded-full"
       >
         <BsArrowLeftCircle />
       </button>

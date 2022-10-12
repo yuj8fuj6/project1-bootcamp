@@ -202,7 +202,7 @@ const Form = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </form>
-      <p>{name}</p>
+      {/* <p>{name}</p>
       <p>{age}</p>
       <p>{weight}</p>
       <p>{bloodType}</p>
@@ -217,7 +217,7 @@ const Form = () => {
       <p>{emer2Phone}</p>
       <p>{emer2Email}</p>
       <p>{userName}</p>
-      <p>{password}</p>
+      <p>{password}</p> */}
     </div>
   );
 };

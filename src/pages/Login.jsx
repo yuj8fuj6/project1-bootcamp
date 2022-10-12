@@ -9,7 +9,6 @@ const Login = () => {
 
   return (
     <div className="base-container">
-      <header className="App-header">
         <img src={appicon} className="App-logo" alt="app-icon" />
         <p className="m-10 text-2xl text-dark-pink">Welcome Back !</p>
         <form className="grid grid-cols-1 gap-3 text-xl text-dark-pink text-left font-light p-3 m-1 w-80 bg-white drop-shadow-lg rounded-xl">
@@ -38,7 +37,6 @@ const Login = () => {
         <Link to="/home">
           <Button value="Login" />
         </Link>
-      </header>
     </div>
   );
 };

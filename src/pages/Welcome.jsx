@@ -6,7 +6,6 @@ import { Link, NavLink } from "react-router-dom";
 const Welcome = () => {
   return (
     <div className="base-container">
-      <header className="App-header">
         <img src={appicon} className="App-logo" alt="app-icon" />
         <p className="m-10 text-2xl text-dark-pink">
           Please choose the following options:
@@ -17,7 +16,6 @@ const Welcome = () => {
         <Link to="/login">
           <Button value="Existing User" />
         </Link>
-      </header>
     </div>
   );
 };

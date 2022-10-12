@@ -6,8 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 const Profile = () => {
   return (
     <div className="base-container">
-      <header className="App-header">
-        <BackButton />
+      <BackButton />
         <p className="font-light w-screen mt-2 text-3xl text-dark-pink text-left pl-10">
           Profile
         </p>
@@ -15,7 +14,6 @@ const Profile = () => {
         <Link to="/home">
           <Button value="Update" />
         </Link>
-      </header>
     </div>
   );
 };

@@ -12,10 +12,10 @@ const Start = () => {
 
   return (
     <div>
-      <header className="App-header">
+      <div className="base-container">
         <div className="App-name">Aime</div>
         <img src={appicon} className="App-logo" alt="app-icon" />
-      </header>
+      </div>
       {start && <Navigate to="./Welcome" />}
     </div>
   );

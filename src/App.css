@@ -11,16 +11,6 @@
   pointer-events: none;
 }
 
-.App-header {
-  background-color: #fae8e0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
 .App-name {
    font-size: calc(20px + 10vmin);
    color: #EF7C8E
@@ -33,6 +23,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
+}
+
+.base-container-secondary {
+  background-color: #fae8e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: white;
 }
 
