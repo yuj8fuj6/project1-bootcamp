@@ -7,3 +7,4 @@ export { default as NavBar } from "./NavBar";
 export { default as Form } from "./Form";
 export { default as AlertButton } from "./AlertButton";
 export { default as FormMood } from "./FormMood";
+export { default as FormMedicine } from "./FormMedicine";

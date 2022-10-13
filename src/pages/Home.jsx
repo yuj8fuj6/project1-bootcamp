@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
 const Home = () => {
   return (
@@ -10,6 +10,6 @@ const Home = () => {
       </header>
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

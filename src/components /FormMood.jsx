@@ -18,6 +18,7 @@ const FormMood = (props) => {
           placeholder=""
           value={props.moodDate}
           onChange={props.onDateChange}
+          name="moodDate"
         />
         <label>Time:</label>
         <input
@@ -28,6 +29,7 @@ const FormMood = (props) => {
           placeholder=""
           value={props.moodTime}
           onChange={props.onTimeChange}
+          name="moodTime"
         />
         <fieldset>
           <legend>How do you feel now?</legend>
@@ -41,6 +43,7 @@ const FormMood = (props) => {
                 checked={props.checked.good}
                 onChange={props.onMoodChange}
                 onClick={props.onChecked}
+                name="mood"
               />
               <label for="good" className=" text-green-400 text-6xl">
                 <BsEmojiSmile />
@@ -54,6 +57,7 @@ const FormMood = (props) => {
                 checked={props.checked.neutral}
                 onChange={props.onMoodChange}
                 onClick={props.onChecked}
+                name="mood"
               />
               <label for="neutral" className="text-yellow-500 text-6xl">
                 <BsEmojiExpressionless />
@@ -67,6 +71,7 @@ const FormMood = (props) => {
                 checked={props.checked.bad}
                 onChange={props.onMoodChange}
                 onClick={props.onChecked}
+                name="mood"
               />
               <label for="bad" className="text-6xl">
                 <BsEmojiFrown />
