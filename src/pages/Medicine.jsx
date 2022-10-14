@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BackButton, FormMedicine } from "../components ";
 import { Link, NavLink, Router, useNavigate } from "react-router-dom";
-import { getBottomNavigationUtilityClass } from "@mui/material";
 
 const Medicine = () => {
   const [medicineName, setMedicineName] = useState("");

@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
 const Clock = () => {
-  return (
-    <div>Clock</div>
-  )
-}
+  const [date, setDate] = useState(new Date());
 
-export default Clock
+  const refreshClock = () => {
+    setDate(new Date());
+  };
+
+  useEffect(() => {
+    const timerId = setInterval(refreshClock, 1000);
+    return function cleanup() {
+      clearInterval(timerId);
+    };
+  }, []);
+  return (
+    <div className="text-base text-dark-pink">{date.toLocaleString()}</div>
+  );
+};
+
+export default Clock;
