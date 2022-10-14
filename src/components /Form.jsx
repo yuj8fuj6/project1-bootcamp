@@ -1,23 +1,6 @@
 import React, { useState } from "react";
 
-const Form = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [weight, setWeight] = useState("");
-  const [bloodType, setBloodType] = useState("");
-  const [medicalConditions, setMedicalConditions] = useState("");
-  const [allergies, setAllergies] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [emer1Name, setEmer1Name] = useState("");
-  const [emer1Phone, setEmer1Phone] = useState("");
-  const [emer1Email, setEmer1Email] = useState("");
-  const [emer2Name, setEmer2Name] = useState("");
-  const [emer2Phone, setEmer2Phone] = useState("");
-  const [emer2Email, setEmer2Email] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-
+const Form = (props) => {
   return (
     <div>
       <form className="grid grid-cols-1 gap-3 text-xl text-dark-pink text-left font-light p-3 m-1 w-80 bg-white drop-shadow-lg rounded-xl">
@@ -28,8 +11,9 @@ const Form = () => {
           id="name"
           required
           placeholder="John Doe"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={props.name}
+          onChange={props.onNameChange}
+          name="name"
         />
         <label>Age:</label>
         <input
@@ -40,8 +24,9 @@ const Form = () => {
           id="age"
           required
           placeholder="60"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
+          value={props.age}
+          onChange={props.onAgeChange}
+          name="age"
         />
         <label>Weight:</label>
         <input
@@ -52,16 +37,18 @@ const Form = () => {
           id="weight"
           required
           placeholder="60"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
+          value={props.weight}
+          onChange={props.onWeightChange}
+          name="weight"
         />
         <label>Blood Type:</label>
         <select
           className="border-solid border-2 border-dark-pink rounded focus:ring-blue-500 focus:border-blue-500 block w-full"
           id="bloodtype"
           required
-          value={bloodType}
-          onChange={(e) => setBloodType(e.target.value)}
+          value={props.bloodType}
+          onChange={props.onBloodTypeChange}
+          name="bloodtype"
         >
           <option value="A+">A+</option>
           <option value="A-">A-</option>
@@ -79,8 +66,9 @@ const Form = () => {
           id="medical"
           required
           placeholder="hypertension, etc."
-          value={medicalConditions}
-          onChange={(e) => setMedicalConditions(e.target.value)}
+          value={props.medicalConditions}
+          onChange={props.onMedConditionsChange}
+          name="medicalConditions"
         />
         <label>Allergies:</label>
         <input
@@ -89,8 +77,9 @@ const Form = () => {
           id="allergies"
           required
           placeholder="food, medication, etc."
-          value={allergies}
-          onChange={(e) => setAllergies(e.target.value)}
+          value={props.allergies}
+          onChange={props.onAllergiesChange}
+          name="allergies"
         />
         <label for="phone">Phone Number:</label>
         <input
@@ -100,9 +89,9 @@ const Form = () => {
           name="phone"
           pattern="+65[0-9]{8}"
           required
-          placeholder="+659111111"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          placeholder="+6591111111"
+          value={props.phone}
+          onChange={props.onPhoneChange}
         />
         <label for="email">Email Address:</label>
         <input
@@ -112,8 +101,8 @@ const Form = () => {
           name="email"
           required
           placeholder="John_Doe@gmail.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={props.email}
+          onChange={props.onEmailChange}
         />
         <label>Emergency Contact 1:</label>
         <input
@@ -122,31 +111,32 @@ const Form = () => {
           id="contact1"
           required
           placeholder="John Doe"
-          value={emer1Name}
-          onChange={(e) => setEmer1Name(e.target.value)}
+          value={props.emer1Name}
+          onChange={props.onEmer1NameChange}
+          name="emer1Name"
         />
         <label for="contact1num">Contact 1 Phone Number:</label>
         <input
           className="border-solid border-2 border-dark-pink rounded"
           type="tel"
           id="contact1num"
-          name="contact1num"
           pattern="+65[0-9]{8}"
           required
-          placeholder="+659111111"
-          value={emer1Phone}
-          onChange={(e) => setEmer1Phone(e.target.value)}
+          placeholder="+6591111111"
+          value={props.emer1Phone}
+          onChange={props.onEmer1PhoneChange}
+          name="emer1Phone"
         />
         <label for="contact1email">Contact 1 Email Address:</label>
         <input
           className="border-solid border-2 border-dark-pink rounded"
           type="email"
           id="contact1email"
-          name="contact1email"
           required
           placeholder="John_Doe@gmail.com"
-          value={emer1Email}
-          onChange={(e) => setEmer1Email(e.target.value)}
+          value={props.emer1Email}
+          onChange={props.onEmer1EmailChange}
+          name="emer1Email"
         />
         <label>Emergency Contact 2:</label>
         <input
@@ -155,31 +145,32 @@ const Form = () => {
           id="contact2"
           required
           placeholder="John Doe"
-          value={emer2Name}
-          onChange={(e) => setEmer2Name(e.target.value)}
+          value={props.emer2Name}
+          onChange={props.onEmer2NameChange}
+          name="emer2Name"
         />
         <label for="contact2num">Contact 2 Phone Number:</label>
         <input
           className="border-solid border-2 border-dark-pink rounded"
           type="tel"
           id="contact2num"
-          name="contact2num"
           pattern="+65[0-9]{8}"
           required
-          placeholder="+659111111"
-          value={emer2Phone}
-          onChange={(e) => setEmer2Phone(e.target.value)}
+          placeholder="+6591111111"
+          value={props.emer2Phone}
+          onChange={props.onEmer2PhoneChange}
+          name="emer2Phone"
         />
         <label for="email">Contact 2 Email Address:</label>
         <input
           className="border-solid border-2 border-dark-pink rounded"
           type="email"
           id="contact2email"
-          name="contact2email"
           required
           placeholder="John_Doe@gmail.com"
-          value={emer2Email}
-          onChange={(e) => setEmer2Email(e.target.value)}
+          value={props.emer2Email}
+          onChange={props.onEmer2EmailChange}
+          name="emer2Email"
         />
         <label>Username:</label>
         <input
@@ -188,8 +179,9 @@ const Form = () => {
           id="username"
           required
           placeholder="abcde"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          value={props.userName}
+          onChange={props.onUserNameChange}
+          name="userName"
         />
         <label>Password:</label>
         <input
@@ -198,26 +190,27 @@ const Form = () => {
           id="password"
           required
           placeholder="abcde"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={props.password}
+          onChange={props.onPasswordChange}
+          name="password"
         />
       </form>
-      {/* <p>{name}</p>
-      <p>{age}</p>
-      <p>{weight}</p>
-      <p>{bloodType}</p>
-      <p>{medicalConditions}</p>
-      <p>{allergies}</p>
-      <p>{phone}</p>
-      <p>{email}</p>
-      <p>{emer1Name}</p>
-      <p>{emer1Phone}</p>
-      <p>{emer1Email}</p>
-      <p>{emer2Name}</p>
-      <p>{emer2Phone}</p>
-      <p>{emer2Email}</p>
-      <p>{userName}</p>
-      <p>{password}</p> */}
+      {/* <p>{props.name}</p>
+      <p>{props.age}</p>
+      <p>{props.weight}</p>
+      <p>{props.bloodType}</p>
+      <p>{props.medicalConditions}</p>
+      <p>{props.allergies}</p>
+      <p>{props.phone}</p>
+      <p>{props.email}</p>
+      <p>{props.emer1Name}</p>
+      <p>{props.emer1Phone}</p>
+      <p>{props.emer1Email}</p>
+      <p>{props.emer2Name}</p>
+      <p>{props.emer2Phone}</p>
+      <p>{props.emer2Email}</p>
+      <p>{props.userName}</p>
+      <p>{props.password}</p> */}
     </div>
   );
 };
