@@ -33,7 +33,7 @@ const Log = () => {
       <p className="font-light w-screen mt-5 text-sm text-dark-pink text-left pl-10">
         Select a date to view your past records!
       </p>
-      <div className="bg-white rounded-xl drop-shadow-xl w-6/12 text-dark-pink">
+      <div className="bg-white rounded-xl drop-shadow-xl w-68 text-dark-pink">
         <label>Date:</label>
         <input
           className="border-solid border-2 border-dark-pink rounded"

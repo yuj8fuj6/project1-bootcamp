@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BackButton, Button, FormMood } from "../components ";
 import { Link, NavLink, Router, useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Mood = () => {
   const [moodDate, setMoodDate] = useState("");
@@ -15,13 +16,8 @@ const Mood = () => {
 
   // const navigate = useNavigate();
 
-  const [data, setData] = useState([
-    {
-      moodData: null,
-      moodTime: null,
-      mood: null,
-    },
-  ]);
+  const [data, setData] = useState({}
+  );
 
   const changeMood = (e) => {
     setChecked(() => {
@@ -46,14 +42,16 @@ const Mood = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData([...data, itemData]);
+    setData(itemData);
     setItemData({});
     // navigate("/home");
   };
 
-  useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
-  }, [data]);
+  // useEffect(() => {
+  //   localStorage.setItem("data", JSON.stringify(data));
+  // }, [data]);
+
+  console.log(data)
 
   return (
     <div className="base-container-secondary">

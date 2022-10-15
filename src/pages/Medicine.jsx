@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BackButton, FormMedicine } from "../components ";
 import { Link, NavLink, Router, useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Medicine = () => {
   const [medicineName, setMedicineName] = useState("");
@@ -17,19 +18,9 @@ const Medicine = () => {
 
   // const navigate = useNavigate();
 
-  const [dataMedicine, setDataMedicine] = useState([
-    {
-      medicineName: null,
-      medicineQtyOne: null,
-      medicineDate: null,
-      medicineTime: null,
-      medicineQtyTotal: null,
-      medicineDose: null,
-      medicineInterval: null,
-      medicineStartDate: null,
-      medicineStartTime: null,
-    },
-  ]);
+  const [dataMedicine, setDataMedicine] = useState({});
+
+  const [medicine, setMedicine] = useLocalStorage("medicine", []);
 
   const handleMedNameChange = (e) => {
     setMedicineName(e.target.value);
@@ -78,14 +69,14 @@ const Medicine = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setDataMedicine([...dataMedicine, itemData]);
+    setMedicine(setDataMedicine(itemData));
     setItemData({});
     // navigate("/home");
   };
 
-  useEffect(() => {
-    localStorage.setItem("dataMedicine", JSON.stringify(dataMedicine));
-  }, [dataMedicine]);
+  // useEffect(() => {
+  //   localStorage.setItem("dataMedicine", JSON.stringify(dataMedicine));
+  // }, [dataMedicine]);
 
   // console.log(dataMedicine)
 
