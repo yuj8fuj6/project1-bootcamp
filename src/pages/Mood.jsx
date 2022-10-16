@@ -16,8 +16,6 @@ const Mood = () => {
 
   // const navigate = useNavigate();
 
-  const [data, setData] = useState({});
-
   const [moodLog, setMoodLog] = useLocalStorage("moodLog", []);
 
   const changeMood = (e) => {
@@ -41,13 +39,9 @@ const Mood = () => {
     setItemData({ ...itemData, [e.target.name]: e.target.value });
   };
 
-  useEffect(() => {
-    setData(itemData);
-  }, [itemData]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMoodLog([...moodLog, data]);
+    setMoodLog([...moodLog, itemData]);
     setItemData({});
     // navigate("/home");
   };

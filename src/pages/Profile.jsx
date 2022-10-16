@@ -1,8 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { BackButton, Form, Button } from "../components ";
 import { Link, NavLink } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Profile = () => {
+  const [profileData, setProfileData] = useState([]);
+
+  const dataSync = async () => {
+    const response = await JSON.parse(localStorage.getItem("profileLog"));
+    setProfileData(response);
+    console.log(response);
+  };
+
+  useEffect(() => {
+    // const profile = JSON.parse(localStorage.getItem("profileLog"));
+    dataSync();
+    // if (profile) {
+    //   setProfileData(profile);
+    // }
+  }, []);
+
+  console.log(profileData);
+
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [weight, setWeight] = useState("");
@@ -20,30 +39,34 @@ const Profile = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const index = profileData.length - 1;
+
+  useEffect(() => {
+    if (profileData.length !== 0) {
+      setName(profileData[index].name);
+      setAge(profileData[index].age);
+      setWeight(profileData[index].weight);
+      setBloodType(profileData[index].bloodType);
+      setMedicalConditions(profileData[index].medicalConditions);
+      setAllergies(profileData[index].allergies);
+      setPhone(profileData[index].phone);
+      setEmail(profileData[index].email);
+      setEmer1Name(profileData[index].emer1Name);
+      setEmer1Phone(profileData[index].emer1Phone);
+      setEmer1Email(profileData[index].emer1Email);
+      setEmer2Name(profileData[index].emer2Name);
+      setEmer2Phone(profileData[index].emer2Phone);
+      setEmer2Email(profileData[index].emer2Email);
+      setUserName(profileData[index].userName);
+      setPassword(profileData[index].password);
+    }
+  }, [profileData, index]);
+
   const [itemData, setItemData] = useState({});
 
   // const navigate = useNavigate();
 
-  const [dataProfile, setDataProfile] = useState([
-    {
-      name: null,
-      age: null,
-      weight: null,
-      bloodType: null,
-      medicalConditions: null,
-      allergies: null,
-      phone: null,
-      email: null,
-      emer1Name: null,
-      emer1Phone: null,
-      emer1Email: null,
-      emer2Name: null,
-      emer2Phone: null,
-      emer2Email: null,
-      userName: null,
-      password: null,
-    },
-  ]);
+  const [profileLog, setProfileLog] = useLocalStorage("profileLog", []);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -127,11 +150,10 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setDataProfile([...dataProfile, itemData]);
+    setProfileLog([...profileLog, itemData]);
     setItemData({});
     // navigate("/home");
   };
-
   // console.log(dataProfile)
 
   return (
@@ -178,7 +200,7 @@ const Profile = () => {
         onClick={handleSubmit}
         className="text-xl p-3 m-4 w-60 bg-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:bg-pink-700 rounded-xl"
       >
-        Record
+        <Link to="/home">Record</Link>
       </button>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "../components ";
 import { Link, NavLink } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Registration = () => {
   const [name, setName] = useState("");
@@ -24,26 +25,7 @@ const Registration = () => {
 
   // const navigate = useNavigate();
 
-  const [dataProfile, setDataProfile] = useState([
-    {
-      name: null,
-      age: null,
-      weight: null,
-      bloodType: null,
-      medicalConditions: null,
-      allergies: null,
-      phone: null,
-      email: null,
-      emer1Name: null,
-      emer1Phone: null,
-      emer1Email: null,
-      emer2Name: null,
-      emer2Phone: null,
-      emer2Email: null,
-      userName: null,
-      password: null,
-    },
-  ]);
+  const [profileLog, setProfileLog] = useLocalStorage("profileLog", []);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -127,7 +109,7 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setDataProfile([...dataProfile, itemData]);
+    setProfileLog([...profileLog, itemData]);
     setItemData({});
     // navigate("/home");
   };
@@ -180,7 +162,7 @@ const Registration = () => {
         onClick={handleSubmit}
         className="text-xl p-3 m-4 w-60 bg-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:bg-pink-700 rounded-xl"
       >
-        Record
+        <Link to="/home">Record</Link>
       </button>
       <Link to="/home">
         <Button value="To Main" />

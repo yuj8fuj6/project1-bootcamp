@@ -18,8 +18,6 @@ const Medicine = () => {
 
   // const navigate = useNavigate();
 
-  const [dataMedicine, setDataMedicine] = useState({});
-
   const [medicineLog, setMedicineLog] = useLocalStorage("medicineLog", []);
 
   const handleMedNameChange = (e) => {
@@ -67,13 +65,9 @@ const Medicine = () => {
     setItemData({ ...itemData, [e.target.name]: e.target.value });
   };
 
-  useEffect(() => {
-    setDataMedicine(itemData);
-  }, [itemData]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMedicineLog([...medicineLog, dataMedicine]);
+    setMedicineLog([...medicineLog, itemData]);
     setItemData({});
     // navigate("/home");
   };
