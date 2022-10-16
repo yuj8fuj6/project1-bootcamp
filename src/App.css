@@ -12,8 +12,8 @@
 }
 
 .App-name {
-   font-size: calc(20px + 10vmin);
-   color: #EF7C8E
+  font-size: calc(20px + 10vmin);
+  color: #ef7c8e;
 }
 
 .base-container {
@@ -35,4 +35,6 @@
   color: white;
 }
 
-
+.rbc-calendar {
+  min-height: 580px;
+}

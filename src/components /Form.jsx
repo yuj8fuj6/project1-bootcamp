@@ -156,7 +156,7 @@ const Form = (props) => {
           id="contact2num"
           pattern="+65[0-9]{8}"
           required
-          placeholder="+6591111111"
+          placeholder="6591111111"
           value={props.emer2Phone}
           onChange={props.onEmer2PhoneChange}
           name="emer2Phone"

@@ -1,8 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { Clock, NavBar } from "../components ";
+import { Calendar } from "../components ";
 import { Link, NavLink, Router, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const [profileData, setProfileData] = useState([]);
+  const [medicineData, setMedicineData] = useState([]);
+
+  const dataSync = async () => {
+    const response = await JSON.parse(localStorage.getItem("profileLog"));
+    setProfileData(response);
+    // console.log(response);
+  };
+
+  useEffect(() => {
+    dataSync();
+  }, []);
+
+  const [name, setName] = useState("");
+
+  const index = profileData.length - 1;
+
+  useEffect(() => {
+    if (profileData.length !== 0) {
+      setName(profileData[index].name);
+    }
+  }, [profileData, index]);
+
+  const medDataSync = async () => {
+    const response = await JSON.parse(localStorage.getItem("medicineLog"));
+    setMedicineData(response);
+    //  console.log(response);
+  };
+
+  useEffect(() => {
+    medDataSync();
+  }, []);
+
+  // console.log(medicineData);
+
   return (
     <div className="base-container-secondary">
       <div className="flex justify-start mt-10 w-screen pl-10">
@@ -12,13 +48,15 @@ const Home = () => {
         Welcome
       </p>
       <p className="font-light w-screen mt-2 text-3xl text-dark-pink text-left pl-10">
-        Name
+        {name}
       </p>
       <NavBar />
       <p className="font-light w-screen mt-5 text-xl text-dark-pink text-left pl-10">
         Calendar
       </p>
-      <div className="h-60 w-11/12 bg-white rounded-xl drop-shadow-xl"></div>
+      <div className="h-max w-11/12 bg-white rounded-xl drop-shadow-xl">
+        <Calendar />
+      </div>
       <p className="font-light w-screen mt-2 text-xl text-dark-pink text-left pl-10">
         Graph
       </p>

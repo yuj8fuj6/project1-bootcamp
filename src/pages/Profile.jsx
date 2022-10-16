@@ -20,7 +20,7 @@ const Profile = () => {
     // }
   }, []);
 
-  console.log(profileData);
+  // console.log(profileData);
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
