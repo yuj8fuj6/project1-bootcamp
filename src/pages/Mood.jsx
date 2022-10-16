@@ -16,8 +16,9 @@ const Mood = () => {
 
   // const navigate = useNavigate();
 
-  const [data, setData] = useState({}
-  );
+  const [data, setData] = useState({});
+
+  const [moodLog, setMoodLog] = useLocalStorage("moodLog", []);
 
   const changeMood = (e) => {
     setChecked(() => {
@@ -40,9 +41,13 @@ const Mood = () => {
     setItemData({ ...itemData, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    setData(itemData);
+  }, [itemData]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData(itemData);
+    setMoodLog([...moodLog, data]);
     setItemData({});
     // navigate("/home");
   };
@@ -51,7 +56,7 @@ const Mood = () => {
   //   localStorage.setItem("data", JSON.stringify(data));
   // }, [data]);
 
-  console.log(data)
+  // console.log(data);
 
   return (
     <div className="base-container-secondary">
@@ -69,14 +74,12 @@ const Mood = () => {
         onMoodChange={handleMoodChange}
         onChecked={changeMood}
       />
-      <Link>
-        <button
-          onClick={handleSubmit}
-          className="text-xl p-3 m-4 w-60 bg-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:bg-pink-700 rounded-xl"
-        >
-          Record
-        </button>
-      </Link>
+      <button
+        onClick={handleSubmit}
+        className="text-xl p-3 m-4 w-60 bg-dark-pink drop-shadow-lg hover:drop-shadow-xl hover:bg-pink-700 rounded-xl"
+      >
+        <Link to="/home">Record</Link>
+      </button>
     </div>
   );
 };
