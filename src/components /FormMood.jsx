@@ -38,8 +38,8 @@ const FormMood = (props) => {
               <input
                 className=" border-dark-pink rounded"
                 type="radio"
-                id="mood"
-                value="5"
+                id="5"
+                value="Good"
                 checked={props.checked.good}
                 onChange={props.onMoodChange}
                 onClick={props.onChecked}
@@ -52,10 +52,11 @@ const FormMood = (props) => {
             <div>
               <input
                 type="radio"
-                id="mood"
-                value="3"
+                id="3"
+                value="Neutral"
                 checked={props.checked.neutral}
                 onChange={props.onMoodChange}
+                onChangeId={props.onMoodIDChange}
                 onClick={props.onChecked}
                 name="mood"
               />
@@ -66,10 +67,11 @@ const FormMood = (props) => {
             <div>
               <input
                 type="radio"
-                id="mood"
-                value="1"
+                id="1"
+                value="Bad"
                 checked={props.checked.bad}
                 onChange={props.onMoodChange}
+                onChangeId={props.onMoodIDChange}
                 onClick={props.onChecked}
                 name="mood"
               />

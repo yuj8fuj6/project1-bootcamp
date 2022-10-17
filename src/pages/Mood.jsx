@@ -7,6 +7,7 @@ const Mood = () => {
   const [moodDate, setMoodDate] = useState("");
   const [moodTime, setMoodTime] = useState("");
   const [mood, setMood] = useState("");
+  const [moodID, setMoodID] = useState("");
   const [checked, setChecked] = useState({
     good: false,
     neutral: false,
@@ -36,7 +37,11 @@ const Mood = () => {
 
   const handleMoodChange = (e) => {
     setMood(e.target.value);
-    setItemData({ ...itemData, [e.target.name]: e.target.value });
+    setItemData({
+      ...itemData,
+      [e.target.name]: e.target.value,
+      id: e.target.id,
+    });
   };
 
   const handleSubmit = (e) => {
