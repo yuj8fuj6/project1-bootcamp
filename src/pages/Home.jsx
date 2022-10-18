@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Clock, DummyCalendar, NavBar } from "../components ";
-import { Calendar } from "../components ";
+import { Clock, DummyCalendar, NavBar, Calendar, Graph } from "../components ";
 import { Link, NavLink, Router, useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -79,9 +78,17 @@ const Home = () => {
         Graph
       </p>
       <p className="font-light w-screen mt-2 mb-2 text-sm text-dark-pink text-left pl-10 pr-10">
-        This graph will show the changes in your mood, with respect to your medicine dose.
+        This graph will show the changes in your mood, with respect to your
+        medicine dose. Please input your medicine dose and mood first to update
+        this graph.
       </p>
-      <div className="h-60 w-11/12 mb-10 bg-white rounded-xl drop-shadow-xl"></div>
+      <div className="h-max w-11/12 bg-white rounded-xl drop-shadow-xl mb-10">
+        {medicineData && moodData ? (
+          <Graph medicineData={medicineData} moodData={moodData} />
+        ) : (
+          <DummyCalendar />
+        )}
+      </div>
     </div>
   );
 };

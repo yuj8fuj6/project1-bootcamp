@@ -7,7 +7,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import uuid from "react-uuid";
 
 const CalendarComponent = (props) => {
-  console.log(props);
+  // console.log(props);
   const data = props.medicineData;
   const moodData = props.moodData;
   // console.log (data);
@@ -15,6 +15,7 @@ const CalendarComponent = (props) => {
   const [events, setEvents] = useState([]);
 
   let tempEvents = [];
+
   useEffect(() => {
     data.forEach((element) => {
       const dataDose = {
@@ -35,6 +36,7 @@ const CalendarComponent = (props) => {
       const dataMood = {
         title: `${element.mood} Mood`,
         id: uuid(),
+        value: element.id,
         start: moment(`${element.moodDate} ${element.moodTime}`).toDate(),
         end: moment(`${element.moodDate} ${element.moodTime}`)
           .add(1, "second")
@@ -46,13 +48,13 @@ const CalendarComponent = (props) => {
   }, [data, moodData]);
 
   return (
-    <div className="flex justify-center">
+    <div className="grid justify-items-center grid-cols-1 h-max">
       <Calendar
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
-        className="h-screen w-11/12 text-dark-pink text-xs p-3"
+        className="flex justify-center h-screen w-11/12 text-dark-pink text-xs p-3"
       />
     </div>
   );

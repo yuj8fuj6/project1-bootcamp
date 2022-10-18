@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontSize: {
         14: "14px",
-        xxl: "15rem",
+        xxl: "10rem",
       },
       backgroundColor: {
         "main-bg": "#FAE8E0",
