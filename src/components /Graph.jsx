@@ -80,14 +80,24 @@ const Graph = (props) => {
     labels: moodTime,
     datasets: [
       {
+        type: "line",
         label: "Mood Tracker",
         data: moodEvent,
         tension: 0,
         borderColor: "#EF7C8E",
         backgroundColor: "#EF7C8E",
         radius: 2,
-        borderWidth: 3,
+        borderWidth: 2,
         pointHitRadius: 5,
+      },
+      {
+        type: "bar",
+        label: "Med Intake",
+        data: moodEvent,
+        barThickness: 4,
+        borderColor: "rgb(75, 192, 192)",
+        borderWidth: 2,
+        backgroundColor: "rgb(75, 192, 192)",
       },
     ],
   };
@@ -103,6 +113,19 @@ const Graph = (props) => {
         },
       },
       x: {
+        type: "time",
+        time: {
+          displayFormats: {
+            second: "MMM DD",
+            minute: "MMM DD",
+            hour: "MMM DD",
+            day: "MMM DD",
+            week: "MMM DD",
+            month: "MMM DD",
+            quarter: "MMM DD",
+            year: "MMM DD",
+          },
+        },
         title: {
           display: true,
           text: "Date-Time",
