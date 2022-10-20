@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Clock, DummyCalendar, NavBar, Calendar, Graph } from "../components ";
+import {
+  Clock,
+  DummyCalendar,
+  NavBar,
+  Calendar,
+  Graph,
+  MedGraph,
+  DummyGraph,
+  DummyMedGraph,
+} from "../components ";
 import { Link, NavLink, Router, useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -75,18 +84,34 @@ const Home = () => {
         )}
       </div>
       <p className="font-light w-screen mt-5 text-xl text-dark-pink text-left pl-10">
-        Graph
+        Graph - <span className="text-amber-500">Mood</span>
       </p>
       <p className="font-light w-screen mt-2 mb-2 text-sm text-dark-pink text-left pl-10 pr-10">
-        This graph will show the changes in your mood, with respect to your
-        medicine dose. Please input your medicine dose and mood first to update
-        this graph.
+        This graph will show the changes in your mood, with respect to time.
+        <p>
+          Level 5 - <span className="text-green-400">Good</span>
+        </p>
+        <p>
+          Level 3 - <span className="text-yellow-400">Neutral</span>
+        </p>
+        <p>
+          Level 1 - <span className="text-red-400">Bad</span>
+        </p>
+      </p>
+      <div className="h-max w-11/12 bg-white rounded-xl drop-shadow-xl mb-2">
+        {moodData ? <Graph moodData={moodData} /> : <DummyGraph />}
+      </div>
+      <p className="font-light w-screen mt-5 text-xl text-dark-pink text-left pl-10">
+        Graph - <span className="text-teal-500">Medicine Dose</span>
+      </p>
+      <p className="font-light w-screen mt-2 mb-2 text-sm text-dark-pink text-left pl-10 pr-10">
+        This graph will show your medicine intake, with respect to time.
       </p>
       <div className="h-max w-11/12 bg-white rounded-xl drop-shadow-xl mb-10">
-        {medicineData && moodData ? (
-          <Graph medicineData={medicineData} moodData={moodData} />
+        {medicineData ? (
+          <MedGraph medicineData={medicineData} />
         ) : (
-          <DummyCalendar />
+          <DummyMedGraph />
         )}
       </div>
     </div>

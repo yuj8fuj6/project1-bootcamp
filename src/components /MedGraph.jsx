@@ -28,37 +28,37 @@ ChartJS.register(
   Tooltip,
   LineController,
   BarController,
-  TimeScale,
-);
-const Graph = (props) => {
-  // const medicineData = props.medicineData;
-  const moodData = props.moodData;
+  TimeScale,)
 
-  moodData.sort(
-    (a, b) =>
-      moment(`${a.moodDate} ${a.moodTime}`).toDate().getTime() -
-      moment(`${b.moodDate} ${b.moodTime}`).toDate().getTime(),
-  );
+const MedGraph = (props) => {
+  const medicineData = props.medicineData;
+  // const moodData = props.moodData;
 
-  const moodEvent = moodData.map((data) => data.id);
-  const moodTime = moodData.map((data) =>
-    moment(`${data.moodDate} ${data.moodTime}`).format("YYYY-MM-DD HH:mm"),
-  );
+  // moodData.sort(
+  //   (a, b) =>
+  //     moment(`${a.moodDate} ${a.moodTime}`).toDate().getTime() -
+  //     moment(`${b.moodDate} ${b.moodTime}`).toDate().getTime(),
+  // );
+
+  // const moodEvent = moodData.map((data) => data.id);
+  // const moodTime = moodData.map((data) =>
+  //   moment(`${data.moodDate} ${data.moodTime}`).format("YYYY-MM-DD HH:mm"),
+  // );
 
   // console.log(moodTime);
 
-  // medicineData.sort(
-  //   (a, b) =>
-  //     moment(`${a.medicineDate} ${a.medicineTime}`).toDate().getTime() -
-  //     moment(`${b.medicineDate} ${b.medicineTime}`).toDate().getTime(),
-  // );
+  medicineData.sort(
+    (a, b) =>
+      moment(`${a.medicineDate} ${a.medicineTime}`).toDate().getTime() -
+      moment(`${b.medicineDate} ${b.medicineTime}`).toDate().getTime(),
+  );
 
-  // const medicineEvent = medicineData.map((data) => data.medicineQtyOne);
-  // const medicineTime = medicineData.map((data) =>
-  //   moment(`${data.medicineDate} ${data.medicineTime}`).format(
-  //     "YYYY-MM-DD HH:mm",
-  //   ),
-  // );
+  const medicineEvent = medicineData.map((data) => data.medicineQtyOne);
+  const medicineTime = medicineData.map((data) =>
+    moment(`${data.medicineDate} ${data.medicineTime}`).format(
+      "YYYY-MM-DD HH:mm",
+    ),
+  );
 
   // console.log(medicineTime);
 
@@ -77,31 +77,31 @@ const Graph = (props) => {
   // console.log(combined);
 
   const dataGraph = {
-    labels: moodTime,
+    labels: medicineTime,
     title: {
       text: "Date Time",
     },
     datasets: [
-      {
-        type: "line",
-        label: "Mood Tracker",
-        data: moodEvent,
-        tension: 0,
-        borderColor: "#f59e0b",
-        backgroundColor: "#f59e0b",
-        radius: 2,
-        borderWidth: 2,
-        pointHitRadius: 5,
-      },
       // {
-      //   type: "bar",
-      //   label: "Med Intake",
-      //   data: medicineEvent,
-      //   barThickness: 4,
-      //   borderColor: "rgb(75, 192, 192)",
+      //   type: "line",
+      //   label: "Mood Tracker",
+      //   data: moodEvent,
+      //   tension: 0,
+      //   borderColor: "#EF7C8E",
+      //   backgroundColor: "#EF7C8E",
+      //   radius: 2,
       //   borderWidth: 2,
-      //   backgroundColor: "rgb(75, 192, 192)",
+      //   pointHitRadius: 5,
       // },
+      {
+        type: "bar",
+        label: "Med Intake",
+        data: medicineEvent,
+        barThickness: 4,
+        borderColor: "#14b8a6",
+        borderWidth: 2,
+        backgroundColor: "#14b8a6",
+      },
     ],
   };
   const options = {
@@ -112,7 +112,7 @@ const Graph = (props) => {
       y: {
         title: {
           display: true,
-          text: "Mood Levels",
+          text: "Med Dose",
         },
       },
       x: {
@@ -141,7 +141,7 @@ const Graph = (props) => {
   return (
     <div>
       <Chart
-        type="line"
+        type="bar"
         data={dataGraph}
         options={options}
         className="h-max w-11/12 text-dark-pink text-xs p-3"
@@ -150,4 +150,4 @@ const Graph = (props) => {
   );
 };
 
-export default Graph;
+export default MedGraph

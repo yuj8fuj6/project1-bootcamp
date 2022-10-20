@@ -30,54 +30,10 @@ ChartJS.register(
   BarController,
   TimeScale,
 );
-const Graph = (props) => {
-  // const medicineData = props.medicineData;
-  const moodData = props.moodData;
 
-  moodData.sort(
-    (a, b) =>
-      moment(`${a.moodDate} ${a.moodTime}`).toDate().getTime() -
-      moment(`${b.moodDate} ${b.moodTime}`).toDate().getTime(),
-  );
-
-  const moodEvent = moodData.map((data) => data.id);
-  const moodTime = moodData.map((data) =>
-    moment(`${data.moodDate} ${data.moodTime}`).format("YYYY-MM-DD HH:mm"),
-  );
-
-  // console.log(moodTime);
-
-  // medicineData.sort(
-  //   (a, b) =>
-  //     moment(`${a.medicineDate} ${a.medicineTime}`).toDate().getTime() -
-  //     moment(`${b.medicineDate} ${b.medicineTime}`).toDate().getTime(),
-  // );
-
-  // const medicineEvent = medicineData.map((data) => data.medicineQtyOne);
-  // const medicineTime = medicineData.map((data) =>
-  //   moment(`${data.medicineDate} ${data.medicineTime}`).format(
-  //     "YYYY-MM-DD HH:mm",
-  //   ),
-  // );
-
-  // console.log(medicineTime);
-
-  // const tempMedTime = medicineData.map((data) =>
-  //   moment(`${data.medicineDate} ${data.medicineTime}`).toDate(),
-  // );
-
-  // const tempMoodTime = moodData.map((data) =>
-  //   moment(`${data.moodDate} ${data.moodTime}`).toDate(),
-  // );
-
-  // const combined = tempMoodTime.concat(tempMedTime);
-
-  // combined.sort((a, b) => a.getTime() - b.getTime());
-
-  // console.log(combined);
-
+const DummyGraph = () => {
   const dataGraph = {
-    labels: moodTime,
+    labels: [],
     title: {
       text: "Date Time",
     },
@@ -85,7 +41,7 @@ const Graph = (props) => {
       {
         type: "line",
         label: "Mood Tracker",
-        data: moodEvent,
+        data: [],
         tension: 0,
         borderColor: "#f59e0b",
         backgroundColor: "#f59e0b",
@@ -93,15 +49,6 @@ const Graph = (props) => {
         borderWidth: 2,
         pointHitRadius: 5,
       },
-      // {
-      //   type: "bar",
-      //   label: "Med Intake",
-      //   data: medicineEvent,
-      //   barThickness: 4,
-      //   borderColor: "rgb(75, 192, 192)",
-      //   borderWidth: 2,
-      //   backgroundColor: "rgb(75, 192, 192)",
-      // },
     ],
   };
   const options = {
@@ -150,4 +97,4 @@ const Graph = (props) => {
   );
 };
 
-export default Graph;
+export default DummyGraph;
