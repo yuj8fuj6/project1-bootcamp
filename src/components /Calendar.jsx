@@ -14,6 +14,8 @@ const CalendarComponent = (props) => {
   const localizer = momentLocalizer(moment);
   const [events, setEvents] = useState([]);
 
+  const [selectedEvent, setSelectedEvent] = useState(undefined);
+
   let tempEvents = [];
 
   useEffect(() => {
@@ -37,6 +39,7 @@ const CalendarComponent = (props) => {
         title: `${element.mood} Mood`,
         id: uuid(),
         value: element.id,
+        isMedicine: false,
         start: moment(`${element.moodDate} ${element.moodTime}`).toDate(),
         end: moment(`${element.moodDate} ${element.moodTime}`)
           .add(1, "second")
@@ -47,14 +50,42 @@ const CalendarComponent = (props) => {
     setEvents(tempEvents);
   }, [data, moodData]);
 
+  const eventPropGetter = (event, start, end, isSelected) => {
+    // console.log(event);
+    let newStyle = {
+      backgroundColor: "#f59e0b",
+      colour: "white",
+      borderRadius: "2px",
+      border: "none",
+    };
+
+    if (event.isMedicine) {
+      newStyle.backgroundColor = "#14b8a6";
+    }
+    return {
+      className: "",
+      style: newStyle,
+    };
+  };
+
+  const handleSelectedEvent = (event) => {
+    setSelectedEvent(event);
+  };
+
+  // console.log(selectedEvent)
   return (
     <div className="grid justify-items-center grid-cols-1 h-max">
+      {selectedEvent &&
+        alert(`${selectedEvent.title} at ${selectedEvent.start}`)}
       <Calendar
+        selectable
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
         className="flex justify-center h-screen w-11/12 text-dark-pink text-xs p-3"
+        eventPropGetter={eventPropGetter}
+        onSelectEvent={(e) => handleSelectedEvent(e)}
       />
     </div>
   );
