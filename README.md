@@ -1,4 +1,4 @@
-# Rocket Academy Coding Bootcamp: Project 1: Frontend App
+# Project 1: Frontend App - Aime (WIP)
 
 https://bc.rocketacademy.co/1-frontend/1.p-frontend-app
 
