@@ -18,14 +18,13 @@ import "./App.css";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
-
   // const [users, setUsers] = useLocalStorage("users", []);
 
   // setUsers([...users, "Yuji"])
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename={window.location.pathname || ""}>
         <div>
           <Routes>
             <Route path="/" element={<Start />} />
